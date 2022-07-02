@@ -54,3 +54,27 @@ test("every() should return false if one element doesn't pass the test", () => {
   const result = every([10, 20], (x) => x > 15);
   equal(result, false);
 });
+
+//testing some()
+
+test("some() returns true if any element passes the test", () => {
+  const result = some([1, 2, 3], (x) => x > 2);
+  equal(result, true);
+});
+
+test("some() returns false if all elements fail the test", () => {
+  const result = some([1, 2, 3], (x) => x > 4);
+  equal(result, false);
+});
+
+//testing find()
+
+test("find() returns the first element that matches the callback", () => {
+  const result = find([1, 2, 3], (x) => x > 1);
+  equal(result, 2);
+});
+
+test("find() returns undefined if no elements match the callback", () => {
+  const result = find([1, 2, 3], (x) => x > 4);
+  equal(result, undefined);
+});
