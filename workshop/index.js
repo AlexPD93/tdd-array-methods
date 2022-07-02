@@ -7,5 +7,23 @@ function map(array, callback) {
 }
 
 function filter(array, callback) {
-  return array;
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i])) {
+      result.push(array[i]);
+    } else {
+      delete array[i];
+    }
+  }
+  return result;
+}
+
+function every(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
