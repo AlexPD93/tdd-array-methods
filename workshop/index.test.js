@@ -78,3 +78,22 @@ test("find() returns undefined if no elements match the callback", () => {
   const result = find([1, 2, 3], (x) => x > 4);
   equal(result, undefined);
 });
+
+//testing reduce()
+
+test("reduce() returns a final accumulator after calling the callback from the previous element", () => {
+  const result = reduce(
+    [1, 2, 3, 4],
+    (previous, current) => previous + current,
+    0
+  );
+  equal(result, 10);
+});
+
+test("reduce() uses the first index as the accumulator if one isn't defined.", () => {
+  const result = reduce(
+    [1, 2, 3, 4],
+    (previous, current) => previous + current
+  );
+  equal(result, 10);
+});

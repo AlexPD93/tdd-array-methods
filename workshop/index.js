@@ -54,3 +54,20 @@ function find(array, callback) {
   }
   return found;
 }
+
+function reduce(array, callback, accumulatorStart) {
+  let i = 0;
+  if (accumulatorStart == undefined) {
+    accumulatorStart = array[0];
+    i = 1;
+  }
+
+  let accumulator = accumulatorStart;
+
+  for (; i < array.length; i++) {
+    const item = array[i];
+    accumulator = callback(accumulator, item, i);
+  }
+
+  return accumulator;
+}
