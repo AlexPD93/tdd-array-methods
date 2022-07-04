@@ -97,3 +97,19 @@ test("reduce() uses the first index as the accumulator if one isn't defined.", (
   );
   equal(result, 10);
 });
+
+//testing flat()
+
+test("flat() turns a nested array into a single nested array", () => {
+  const result = flat([1, [2, 3]]);
+  equal(result[0], 1);
+  equal(result[1], 2);
+  equal(result[2], 3);
+});
+
+test("flat() should flatten nested arrays 2 levels deep", () => {
+  const result = flat([1, [2, [3]]], 2);
+  equal(result[0], 1);
+  equal(result[1], 2);
+  equal(result[2], 3);
+});

@@ -71,3 +71,7 @@ function reduce(array, callback, accumulatorStart) {
 
   return accumulator;
 }
+
+function flat(arr) {
+  return arr.reduce((acc, val) => acc.concat(val), []);
+}
