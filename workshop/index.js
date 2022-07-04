@@ -72,6 +72,12 @@ function reduce(array, callback, accumulatorStart) {
   return accumulator;
 }
 
-function flat(arr) {
-  return arr.reduce((acc, val) => acc.concat(val), []);
+function flat(arr, d = 1) {
+  //If d is higher than 0
+  return d > 0
+    ? arr.reduce(
+        (acc, val) => acc.concat(Array.isArray(val) ? flat(val, d - 1) : val),
+        []
+      )
+    : arr.slice();
 }
